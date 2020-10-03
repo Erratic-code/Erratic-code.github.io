@@ -185,52 +185,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <a id="more"></a>
-<p><img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3670326345,2658329912&fm=26&gp=0.jpg" alt="java" title="java"></p>
-<h1 id="Java基础核心总结-一"><a href="#Java基础核心总结-一" class="headerlink" title="Java基础核心总结(一)"></a>Java基础核心总结(一)</h1><p>Java的内存需要划分成为五个部分：<br></p>
-<ol>
-<li>栈(stack): 存放方法中的局部变量。<br><br>局部变量：方法的参数，或者方法内部的变量。<br><br>作用域： 一旦超出作用域，立刻从栈内存当中消失。<br></li>
-<li>堆(Heap):new出来的东西都在堆中。<br><br>堆内存里面的东西都有一个地址值（16进制表示的）<br><br>堆内存里面的数据，都会被默认初始化，规则如下：<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;int —————&gt;  默认为0 <br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;double————-&gt;  默认为00<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;char—————&gt;  默认为’\u0000’<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;boolean——————-&gt;  默认为false<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;引用类型——————&gt;   默认为null<br></li>
-<li>方法区(Method Area):&nbsp;存储.class相关信息，包含方法的信息。</li>
-<li>本地方法栈(Native Method Stack):&nbsp;与操作系统相关。</li>
-<li>寄存器(pc Register):与CPU相关。</li>
-</ol>
-<hr>
-<h2 id="变量的一些注意事项："><a href="#变量的一些注意事项：" class="headerlink" title="变量的一些注意事项："></a>变量的一些注意事项：</h2><ol>
-<li>如果创建多个变量，那么变量之间的名称不可以重复。</li>
-<li>对于float和long类型来说，字母后缀F和L不要丢掉。</li>
-<li>如果使用byte或者short类型的变量，那么右侧的数据值不能超过左侧类型的范围。</li>
-<li>没有进行赋值的变量，不能直接使用，一定要赋值之后，才能使用。</li>
-<li>变量使用不能超过作用域的范围。</li>
-<li>可以通过一个语句来创建多个变量，但是一般情况不推荐这么写。</li>
-</ol>
-<h2 id="类型转换的方式："><a href="#类型转换的方式：" class="headerlink" title="类型转换的方式："></a>类型转换的方式：</h2><h3 id="1-强制类型转换："><a href="#1-强制类型转换：" class="headerlink" title="1. 强制类型转换："></a>1. 强制类型转换：</h3><ol>
-<li>特点：代码需要进行特殊的格式处理，不能自动完成。</li>
-<li>格式： 范围小的类型  范围小的变量名 = （范围小的类型） 原本范围大的数据;<h4 id="注意事项："><a href="#注意事项：" class="headerlink" title="注意事项："></a>注意事项：</h4></li>
-<li>强制类型转换一般不推荐使用，可能会发生精度损失、数据溢出。</li>
-<li>byte/short/char这三种类型都可以发生数学运算，例如’+’。</li>
-<li>byte/short/char这三种类型在运算的时候，都会被首先提升为int类型，然后再计算。</li>
-<li>boolean类型不能发生数据类型转换。<h3 id="2-自动类型转换："><a href="#2-自动类型转换：" class="headerlink" title="2. 自动类型转换："></a>2. 自动类型转换：</h3></li>
-<li>特点：代码不需要进行特殊处理，自动完成。</li>
-<li>规则：数据范围从小的转向数据范围大的。</li>
-</ol>
-<hr>
-<h2 id="数字和字符的对照关系表-编码表-："><a href="#数字和字符的对照关系表-编码表-：" class="headerlink" title="数字和字符的对照关系表(编码表)："></a>数字和字符的对照关系表(编码表)：</h2><p>ASCII码表：American Standard Code for Information Interchange，美国信息交换标准代码。<br><br>Unicode码表:万国码。也是数字和符号的对照关系，开头0-127和ASCII完全一样，从128开始包含更多字符。</p>
-<hr>
-<p>三元运算符：需要三个数据才能进行操作的运算符。<br><br>格式：<br><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;数据类型 变量名称 = 条件判断?表达式A：表达式B;<br><br>执行流程：<br><br>首先判断条件是否成立:<br><br>&emsp;&emsp;&emsp;&emsp;如果成立为true，那么将表达式A的值赋给左侧的变量;<br><br>&emsp;&emsp;&emsp;&emsp;如果不成立为false，那么将表达式B的值赋给左侧的变量；<br><br>注意事项:<br></p>
-<ol>
-<li>必须同时保证表达式A和表达式B都符合左侧数据类型的要求。</li>
-<li>三元运算符的结果必须被使用。</li>
-</ol>
-<hr>
-<h2 id="数组的初始化-在内存当中创建一个数组，并向其中赋予一些默认值。"><a href="#数组的初始化-在内存当中创建一个数组，并向其中赋予一些默认值。" class="headerlink" title="数组的初始化:在内存当中创建一个数组，并向其中赋予一些默认值。"></a>数组的初始化:在内存当中创建一个数组，并向其中赋予一些默认值。</h2><p>两种常见的初始化方式：</p>
-<ol>
-<li>动态初始化(指定长度)：在创建数组的时候，直接指定数组当中的数据元素个数。</li>
-<li>静态初始化(指定内容)：在创建数组的时候，不直接指定数据元素的个数，而是直接将具体的数据内容进行指定。</li>
-</ol>
-<p>静态初始化的格式：<br>数据类型 [ ] 数组名称 = ( new 数据类型 [ ] ) {元素1，元素2，…}<br></p>
-<p>所有的引用类型变量,都可以赋值为一个null值。代表其中什么都没有！</p>
-
+        <p><img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3670326345,2658329912&fm=26&gp=0.jpg" alt="java" title="java"></p>
+        
+          <a class="article-more-a" href="/2020/10/03/Java%E5%9F%BA%E7%A1%80%E6%A0%B8%E5%BF%83/#more">more >></a>
+        
       
 
 <!-- 增加版权声明 -->
@@ -256,6 +214,87 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2020/10/03/Java%E5%9F%BA%E7%A1%80%E6%A0%B8%E5%BF%83/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-我的第一篇文章" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/09/26/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/">MD编辑规则</a>
+    </h1>
+  
+
+        <!--显示阅读次数-->
+
+      <!--显示阅读次数完毕-->
+        
+        <a href="/2020/09/26/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/" class="archive-article-date">
+  	<time datetime="2020-09-26T05:54:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-26</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="我的博客文章编写"><a href="#我的博客文章编写" class="headerlink" title="我的博客文章编写"></a>我的博客文章编写</h1>
+        
+          <a class="article-more-a" href="/2020/09/26/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/#more">more >></a>
+        
+      
+
+<!-- 增加版权声明 -->
+
+
+
+  <div class="declare" hidden="hidden"></div>
+
+<!-- 增加版权声明结束 -->
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+        <div class="article-pop-out tagcloud">
+          <i class="icon-tuding"></i>
+          <a class="article-tag-list-link color3">置顶</a>
+        </div>
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/09/26/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/">展开全文 >></a>
         </p>
       
 
